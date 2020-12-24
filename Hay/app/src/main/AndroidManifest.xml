@@ -15,8 +15,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MaterialComponents.DayNight.NoActionBar">
+
         <activity android:name=".UpdatePwActivty"></activity>
-        <activity android:name=".DetailViewActivity" />
+        <activity android:name=".MainActivity" />
         <activity android:name=".TAGActivity" />
         <activity android:name=".AddFriendsActivity" />
         <activity android:name=".FindPWActivity" />
@@ -26,7 +27,7 @@
         <activity android:name=".MyPageActivity" />
         <activity android:name=".ExplanationActivity" />
         <activity android:name=".IntroActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".DetailViewActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
