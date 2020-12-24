@@ -1,319 +1,302 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
 
-    android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    >
+    android:orientation="vertical"
+    tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/ll_hide"
-        android:orientation="vertical"
+        android:id="@+id/detail_ll_hide"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:orientation="vertical">
+
         <LinearLayout
-            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
-            >
+            android:layout_height="160dp"
+            android:orientation="horizontal">
 
             <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                <ImageView
 
-                    android:id="@+id/detail_icon_profile"
-                    android:layout_width="200dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="100dp"
-                    android:adjustViewBounds="true"
-                    android:maxWidth="300dp"
-                    android:maxHeight="300dp"
-                    android:scaleType="fitCenter"
-                    android:src="@drawable/ic_person" />
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view"
+                    android:layout_gravity="center"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:cardCornerRadius="40dp"
+                    android:paddingLeft="30dp">
+
+
+                    <ImageView
+                        android:id="@+id/detail_icon_profile"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:adjustViewBounds="true"
+                        android:maxWidth="100dp"
+                        android:maxHeight="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/ic_person" />
+                </androidx.cardview.widget.CardView>
 
                 <ImageButton
+                    android:baselineAlignBottom="true"
                     android:id="@+id/detail_Btn_plus"
-                    android:layout_width="45dp"
-                    android:layout_height="43dp"
-                    android:layout_marginTop="160dp"
-                    android:layout_marginLeft="260dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="250dp"
+                    android:layout_marginTop="120dp"
                     android:adjustViewBounds="true"
+                    android:background="@color/white"
                     android:maxWidth="50dp"
                     android:maxHeight="50dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/plus" />
             </FrameLayout>
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_marginLeft="9dp"
-                android:maxWidth="30dp"
-                android:maxHeight="30dp"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:adjustViewBounds="true"
-                android:src="@drawable/usericon"
-                />
-            <EditText
-
-                android:id="@+id/detail_Edit_username"
-                android:background="@drawable/edittext_rounded_corner_rectangl"
-                android:layout_width="300dp"
-                android:layout_marginLeft="15dp"
-                android:layout_height="40dp"
-                android:hint=" 성명"
-                android:inputType="textPersonName"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_gravity="center"
-                android:adjustViewBounds="true"
-                android:src="@drawable/icon_phone"
-                android:layout_marginLeft="9dp"
-                android:maxWidth="30dp"
-                android:maxHeight="30dp"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                />
-            <EditText
-                android:id="@+id/detail_Edit_usertel"
-                android:background="@drawable/edittext_rounded_corner_rectangl"
-                android:layout_width="300dp"
-                android:layout_marginLeft="15dp"
-                android:layout_height="40dp"
-                android:hint=" 번호"
-                android:inputType="phone"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_gravity="center"
-                android:adjustViewBounds="true"
-                android:src="@drawable/icon_email"
-                android:layout_marginLeft="9dp"
-                android:maxWidth="30dp"
-                android:maxHeight="30dp"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                />
-            <EditText
-                android:id="@+id/detail_Edit_useremail"
-                android:hint=" 이메일"
-                android:inputType="textEmailAddress"
-                android:background="@drawable/edittext_rounded_corner_rectangl"
-                android:layout_width="300dp"
-                android:layout_marginLeft="15dp"
-                android:layout_height="40dp"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_gravity="center"
-                android:adjustViewBounds="true"
-                android:layout_marginLeft="9dp"
-                android:maxWidth="30dp"
-                android:maxHeight="30dp"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:src="@drawable/relation"
-                />
-            <EditText
-                android:id="@+id/detail_Edit_relation"
-                android:hint=" 관계"
-                android:inputType="text"
-                android:background="@drawable/edittext_rounded_corner_rectangl"
-                android:layout_width="300dp"
-                android:layout_marginLeft="15dp"
-                android:layout_height="40dp"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:adjustViewBounds="true"
-                android:maxWidth="20dp"
-                android:maxHeight="20dp"
-                android:src="@drawable/tag"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
             <ImageView
                 android:id="@+id/detail_tag1"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_marginRight="15dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="20dp"
                 android:maxHeight="20dp"
-                android:src="@drawable/firstlight"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+                android:src="@drawable/firstlight" />
+
             <ImageView
                 android:id="@+id/detail_tag2"
+
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_marginRight="15dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="20dp"
                 android:maxHeight="20dp"
-                android:src="@drawable/secondlight"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+                android:src="@drawable/secondlight" />
+
             <ImageView
+
                 android:id="@+id/detail_tag3"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_marginRight="15dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="20dp"
                 android:maxHeight="20dp"
-                android:src="@drawable/thirdlight"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+                android:src="@drawable/thirdlight" />
+
             <ImageView
                 android:id="@+id/detail_tag4"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center"
-                android:layout_weight="1"
+                android:layout_marginRight="15dp"
                 android:adjustViewBounds="true"
                 android:maxWidth="20dp"
                 android:maxHeight="20dp"
-                android:src="@drawable/fourthlight"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+                android:src="@drawable/fourthlight" />
+
             <ImageView
                 android:id="@+id/detail_tag5"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
                 android:layout_gravity="center"
-                android:layout_weight="1"
                 android:adjustViewBounds="true"
                 android:maxWidth="20dp"
                 android:maxHeight="20dp"
-                android:src="@drawable/fifthlight"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"/>
+                android:src="@drawable/fifthlight" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/detail_Edit_username"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="55dp"
+                android:hint=" 이름을 입력해주세요"
+                android:inputType="textPersonName"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/detail_warning"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/detail_Edit_usertel"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="55dp"
+                android:hint=" 연락처를 입력해주세요"
+                android:inputType="phone"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginRight="20dp"
+                android:gravity="center"
+                android:text="이름과 연락처는 반드시 입력해 주셔야 합니다."
+                android:textColor="#D65656" />
+
+        </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_gravity="center"
-                android:adjustViewBounds="true"
-                android:src="@drawable/address"
-                android:layout_marginLeft="9dp"
-                android:maxWidth="30dp"
-                android:maxHeight="30dp"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                />
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/detail_Edit_useremail"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="55dp"
+                android:hint=" 이메일을 입력해 주세요"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/detail_Edit_relation"
+                android:layout_width="300dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="55dp"
+                android:hint=" 당신과의 관계는 ?"
+                android:inputType="text"
+                android:textColor="@color/black" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:orientation="horizontal">
+
             <EditText
                 android:id="@+id/detail_Edit_address"
-                android:hint=" 주소"
-                android:background="@drawable/edittext_rounded_corner_rectangl"
                 android:layout_width="300dp"
-                android:layout_marginLeft="15dp"
                 android:layout_height="40dp"
+                android:layout_marginLeft="55dp"
+                android:hint=" 주소를 입력해주세요 "
                 android:inputType="textPostalAddress"
-                android:textColor="@color/black"
-                />
+                android:textColor="@color/black" />
         </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="140dp"
-            android:layout_marginTop="16dp"
-            android:orientation="horizontal"
-            >
-            <ImageView
-                android:layout_gravity="center"
-                android:adjustViewBounds="true"
-                android:src="@drawable/comment"
-                android:layout_marginLeft="9dp"
-                android:layout_marginBottom="10dp"
-                android:maxWidth="36dp"
-                android:maxHeight="36dp"
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                />
-            <EditText
-                android:id="@+id/detail_Edit_comment"
-                android:hint=" 코멘트"
-                android:background="@drawable/edittext_rounded_corner_rectangl"
-                android:layout_width="300dp"
-                android:layout_marginLeft="14dp"
-                android:layout_height="140dp"
-                android:lines="5"
-                android:gravity="top|left"
-                android:inputType="textMultiLine"
-                android:scrollHorizontally="false"
-                android:minWidth="10.0dip"
-                android:maxWidth="5.0dip"
-                android:textColor="@color/black"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
+
+        <FrameLayout
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content">
-            <TextView
-                android:id="@+id/detail_enrollBtn"
-                android:layout_width="wrap_content"
+
+            <ImageView
+                android:id="@+id/detail_commentplus"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
-                android:text="등록"
-                android:textStyle="bold"
-                android:textSize="30dp"
-                android:layout_marginLeft="100dp"
-                android:layout_marginTop="10dp"
-                />
-            <TextView
+                android:layout_gravity="center"
+                android:layout_marginLeft="165dp"
+                android:layout_marginTop="4dp"
+                android:adjustViewBounds="true"
+                android:maxWidth="20dp"
+                android:maxHeight="20dp"
+                android:src="@drawable/plus" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/detail_Edit_comment"
+                    android:layout_width="300dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="55dp"
+                    android:gravity="top|left"
+                    android:hint=" 코멘트를 입력해주세요(최대 100자)"
+                    android:inputType="textMultiLine"
+                    android:lines="5"
+                    android:maxWidth="5.0dip"
+                    android:minWidth="10.0dip"
+                    android:scrollHorizontally="false"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="35dp"
+            >
+
+            <Button
                 android:id="@+id/detail_cancelBtn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="취소"
-                android:textStyle="bold"
-                android:textSize="30dp"
-                android:layout_marginLeft="100dp"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="50dp"
                 android:layout_marginTop="10dp"
-                />
+                android:background="@drawable/login_loginbtn_shape"
+                android:text="취소"
+                android:textColor="@color/white"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:backgroundTint="#B2ABBD"
+                app:backgroundTint="#B2ABBD" />
+
+            <Button
+                android:id="@+id/detail_enrollBtn"
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/login_loginbtn_shape"
+                android:text="등록"
+                android:textSize="15dp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                app:backgroundTint="#b190ee" />
+
         </LinearLayout>
+
     </LinearLayout>
 
 </ScrollView>
