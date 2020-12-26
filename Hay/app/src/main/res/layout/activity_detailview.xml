@@ -33,16 +33,19 @@
                     app:cardCornerRadius="40dp"
                     android:paddingLeft="30dp">
 
-
-                    <ImageView
-                        android:id="@+id/detail_icon_profile"
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:adjustViewBounds="true"
-                        android:maxWidth="100dp"
-                        android:maxHeight="100dp"
-                        android:scaleType="centerCrop"
-                        android:src="@drawable/ic_person" />
+                    <LinearLayout
+                        android:id="@+id/detail_mainContent"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <ImageView
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:adjustViewBounds="true"
+                            android:maxWidth="100dp"
+                            android:maxHeight="100dp"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/ic_person" />
+                    </LinearLayout>
                 </androidx.cardview.widget.CardView>
 
                 <ImageButton
@@ -50,7 +53,7 @@
                     android:id="@+id/detail_Btn_plus"
                     android:layout_width="25dp"
                     android:layout_height="25dp"
-                    android:layout_marginLeft="250dp"
+                    android:layout_marginLeft="255dp"
                     android:layout_marginTop="120dp"
                     android:adjustViewBounds="true"
                     android:background="@color/white"
@@ -243,7 +246,9 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
                 <EditText
                     android:id="@+id/detail_Edit_comment"
                     android:layout_width="300dp"
@@ -254,10 +259,10 @@
                     android:inputType="textMultiLine"
                     android:lines="5"
                     android:maxWidth="5.0dip"
-                    android:minWidth="10.0dip"
+                    android:minWidth="5.0dip"
                     android:scrollHorizontally="false"
                     android:textColor="@color/black" />
-
+</ScrollView>
             </LinearLayout>
         </FrameLayout>
 

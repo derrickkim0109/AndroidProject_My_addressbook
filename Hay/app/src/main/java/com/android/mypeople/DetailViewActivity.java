@@ -17,6 +17,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class DetailViewActivity extends Activity {
 
@@ -29,13 +30,16 @@ public class DetailViewActivity extends Activity {
     Intent intent;
 
     LinearLayout ll_hide;
-    EditText username, usertel, useremail, relation, address, comment;
+    EditText userName, userTel, userEmail, relation, address, comment;
     ImageView profile, tag1, tag2, tag3, tag4, tag5;
-    Button btnenroll, btncancel;
+    Button btnEnroll, btnCancel;
     ImageButton btnPlus;
 
-    int limit = 0, admit =0;
+    //이미지 추가 되는곳
+    ImageView userProfile;
+    int limit = 0;
     int t1 = 0, t2 = 0 ,t3 = 0, t4 = 0, t5 = 0 ;
+    int limitT1 = 0, limitT2 = 0, limitT3 = 0, limitT4 = 0, limitT5 = 0;
 
     @SuppressLint("WrongViewCast")
     @Override
@@ -50,27 +54,27 @@ public class DetailViewActivity extends Activity {
 
 
 
-        username = findViewById(R.id.detail_Edit_username);
-        usertel = findViewById(R.id.detail_Edit_usertel);
-        useremail = findViewById(R.id.detail_Edit_useremail);
+        userName = findViewById(R.id.detail_Edit_username);
+        userTel = findViewById(R.id.detail_Edit_usertel);
+        userEmail = findViewById(R.id.detail_Edit_useremail);
         relation = findViewById(R.id.detail_Edit_relation);
         address = findViewById(R.id.detail_Edit_address);
         comment = findViewById(R.id.detail_Edit_comment);
 
         //입력시 자릿수 제한
-        username.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(10)});
-        usertel.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(12)});
-        useremail.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(30)});
+        userName.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(10)});
+        userTel.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(12)});
+        userEmail.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(30)});
         relation.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(20)});
         address.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(60)});
 
         btnPlus = findViewById(R.id.detail_Btn_plus);
-        btnenroll = findViewById(R.id.detail_enrollBtn);
-        btncancel = findViewById(R.id.detail_cancelBtn);
+        btnEnroll = findViewById(R.id.detail_enrollBtn);
+        btnCancel = findViewById(R.id.detail_cancelBtn);
 
         btnPlus.setOnClickListener(onClickListener);
-        btnenroll.setOnClickListener(onClickListener);
-        btncancel.setOnClickListener(onClickListener);
+        btnEnroll.setOnClickListener(onClickListener);
+        btnCancel.setOnClickListener(onClickListener);
 
 
         //////사진 추가시 여기로
@@ -142,79 +146,112 @@ public class DetailViewActivity extends Activity {
         public void onClick(View v) {
 
             // admit 버튼 딸깍 허용 // limit 최대 3번까지 선택.
-            if(limit < 4 ){
-
             switch (v.getId()){
                 case R.id.detail_tag1:
-                    if(admit < 1) {
-                        admit = 1;
-                        limit ++;
+
+                    if(limitT1 == 0 && limit < 3) {
+                        limit++;
+                        limitT1++;
                         tag1.setImageResource(R.drawable.firstblack);
+                        //DB에 보낼값.
+                        t1 = 1;
+                        Toast.makeText(DetailViewActivity.this,"친구",Toast.LENGTH_SHORT).show();
 
-                    }else if(admit == 1) {
-                        admit = 0;
-                        limit = limit - 1;
+                    }else if(limitT1 == 1) {
+                        limit--;
+                        limitT1--;
                         tag1.setImageResource(R.drawable.firstlight);
-                    }
-                    break;
 
+                        t1 = 0;
+
+
+                    }
+                        break;
                 case R.id.detail_tag2:
-                    if(admit < 1) {
-                        admit = 1;
-                        limit ++;
+                    if(limitT2 == 0 && limit < 3) {
+                        limit++;
+                        limitT2++;
                         tag2.setImageResource(R.drawable.secondblack);
+                        Toast.makeText(DetailViewActivity.this,"가족",Toast.LENGTH_SHORT).show();
+                        //DB에 보낼값.
+                        t2 = 1;
 
-                    }else if(admit == 1){
-                        admit = 0;
-                        limit = limit - 1;
+
+                    }else if(limitT2 == 1){
+                        limit--;
+                        limitT2--;
                         tag2.setImageResource(R.drawable.secondlight);
-                    }
 
+                        t2 = 0;
+
+
+                    }
                     break;
                 case R.id.detail_tag3:
-                    if(admit < 1) {
-                        admit = 1;
+                    if(limitT3 == 0 && limit < 3) {
                         limit++;
+                        limitT3++;
                         tag3.setImageResource(R.drawable.thirdblack);
+                        Toast.makeText(DetailViewActivity.this,"계모임",Toast.LENGTH_SHORT).show();
+                        //DB에 보낼값.
+                        t3 = 1 ;
 
-                    }else if(admit == 1){
-                        admit = 0;
-                        limit = limit - 1;
+
+                    }else if(limitT3 == 1){
+                        limit--;
+                        limitT3--;
                         tag3.setImageResource(R.drawable.thirdlight);
+
+                        t3 = 0;
+
+
                     }
                     break;
                 case R.id.detail_tag4:
-                    if(admit < 1) {
-                        admit = 1;
+                    if(limitT4 == 0 && limit < 3) {
                         limit++;
+                        limitT4++;
                         tag4.setImageResource(R.drawable.fourthblack);
+                        Toast.makeText(DetailViewActivity.this,"조기축구",Toast.LENGTH_SHORT).show();
+                        //DB에 보낼값.
+                        t4 = 1;
 
-                    }else if(admit == 1){
-                        admit = 0;
-                        limit = limit - 1;
+
+                    }else if(limitT4 == 1){
+                        limit--;
+                        limitT4--;
                         tag4.setImageResource(R.drawable.fourthlight);
+                        t4 = 0;
+
+
                     }
                     break;
                 case R.id.detail_tag5:
-                    if(admit < 1) {
-                        admit = 1;
+                    if(limitT5 == 0 && limit < 3) {
                         limit++;
+                        limitT5++;
                         tag5.setImageResource(R.drawable.fifthblack);
-                    }else if(admit == 1){
-                        admit = 0;
-                        limit = limit - 1;
-                        tag5.setImageResource(R.drawable.fifthlight);
-                    }
+                        Toast.makeText(DetailViewActivity.this,"거래",Toast.LENGTH_SHORT).show();
+                        //DB에 보낼값.
+                        t5 = 1;
 
+
+                    }else if(limitT5 == 1){
+                        limit--;
+                        limitT5--;
+                        tag5.setImageResource(R.drawable.fifthlight);
+                        t5 = 0;
+
+
+                    }
                     break;
+
             }///End
-                Log.v(TAG, String.valueOf(admit));
                 Log.v(TAG, String.valueOf(limit));
             }
-            else {
 
-            }
-        }
+
+
     };
 
 
