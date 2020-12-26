@@ -6,7 +6,9 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
 import android.text.InputFilter;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -31,8 +33,9 @@ public class DetailViewActivity extends Activity {
 
     LinearLayout ll_hide;
     EditText userName, userTel, userEmail, relation, address, comment;
-    ImageView profile, tag1, tag2, tag3, tag4, tag5;
+    ImageView  tag1, tag2, tag3, tag4, tag5;
     Button btnEnroll, btnCancel;
+    TextView textView_match;
     ImageButton btnPlus;
 
     //이미지 추가 되는곳
@@ -61,7 +64,16 @@ public class DetailViewActivity extends Activity {
         address = findViewById(R.id.detail_Edit_address);
         comment = findViewById(R.id.detail_Edit_comment);
 
-        //입력시 자릿수 제한
+
+        ////////////////////////////////////////////////////////////
+        //                                                        //
+        //                                                        //
+        //                    /입력시 자릿수 제한//   2020.12.24-태현     //
+        //                                                        //
+        //                                                        //
+        ////////////////////////////////////////////////////////////
+
+
         userName.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(10)});
         userTel.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(12)});
         userEmail.setFilters(new InputFilter[]{ new InputFilter.LengthFilter(30)});
@@ -72,16 +84,47 @@ public class DetailViewActivity extends Activity {
         btnEnroll = findViewById(R.id.detail_enrollBtn);
         btnCancel = findViewById(R.id.detail_cancelBtn);
 
+
         btnPlus.setOnClickListener(onClickListener);
         btnEnroll.setOnClickListener(onClickListener);
         btnCancel.setOnClickListener(onClickListener);
 
 
-        //////사진 추가시 여기로
-        profile = findViewById(R.id.detail_icon_profile);
+        textView_match = findViewById(R.id.detail_textview_match);
+
+        ////////////////////////////////////////////////////////////
+        //                                                        //
+        //                                                        //
+        //                    /이름/ 전화번호 확인  2020.12.24-태현      //
+        //                                                        //
+        //                                                        //
+        ////////////////////////////////////////////////////////////
 
 
-        ///사진 추가
+        userTel.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                textView_match.setText("");
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        ////////////////////////////////////////////////////////////
+        //                                                        //
+        //                                                        //
+        //                    /Tag 선언  2020.12.24-태현                 //
+        //                                                        //
+        //                                                        //
+        ////////////////////////////////////////////////////////////
 
 
         //Tag
@@ -100,8 +143,15 @@ public class DetailViewActivity extends Activity {
 
 
 
+        ////////////////////////////////////////////////////////////
+        //                                                        //
+        //                                                        //
+        //                    /키보드 화면 터치시 숨기기위해 선언.2020.12.24-태현         //
+        //                                                        //
+        //                                                        //
+        ////////////////////////////////////////////////////////////
 
-        //키보드 화면 터치시 숨기기위해 선언.
+        //
         ll_hide = findViewById(R.id.detail_ll_hide);
         inputMethodManager = (InputMethodManager) getSystemService(INPUT_METHOD_SERVICE);  //OS에서 지원해주는 메소드이다.
 
@@ -119,16 +169,25 @@ public class DetailViewActivity extends Activity {
 
     }
 
-    //사진 추가 버튼 // 등록 하기 // 메인 리스트 //
+    ////////////////////////////////////////////////////////////
+    //                                                        //
+    //                                                        //
+    //        //사진 추가 버튼 // 등록 하기 // 메인 리스트 //2020.12.24-태현         //
+    //                                                        //
+    //                                                        //
+    ////////////////////////////////////////////////////////////
+
+
+
     View.OnClickListener onClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
             switch (v.getId()){
-                    //사진 추가 버튼
                 case R.id.detail_Btn_plus:
-
+                    intent = new Intent(DetailViewActivity.this,GalleryActivity.class);
+                    startActivity(intent);
                     break;
-                    //등록하기
+                //등록하기
                 case R.id.detail_enrollBtn:
 
                     break;
@@ -141,11 +200,20 @@ public class DetailViewActivity extends Activity {
         }
     };
 
+
+    ////////////////////////////////////////////////////////////
+    //                                                        //
+    //                                                        //
+    //       // limit 최대 3번까지 선택. 딸깍이  2020.12.24-태현     //
+    //                                                        //
+    //                                                        //
+    ////////////////////////////////////////////////////////////
+
     View.OnClickListener tClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
 
-            // admit 버튼 딸깍 허용 // limit 최대 3번까지 선택.
+            // limit 최대 3번까지 선택.
             switch (v.getId()){
                 case R.id.detail_tag1:
 
@@ -254,6 +322,13 @@ public class DetailViewActivity extends Activity {
 
     };
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
 
+        }
+
+    }
 }
 

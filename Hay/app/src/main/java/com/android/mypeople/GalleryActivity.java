@@ -11,6 +11,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -42,11 +43,24 @@ import javax.xml.parsers.DocumentBuilder;
 
 public class GalleryActivity extends AppCompatActivity implements View.OnClickListener{
 
-    Button contactBtn;
-    Button galleryBtn;
-    LinearLayout mainContent;
-    int reqWidth, reqHeight;
 
+    //field
+    final static String TAG = "GalleryActivity";
+
+    Button contactBtn,galleryBtn;
+    Button gallery_enroll_cancelBtn ,gallery_enroll_enrollBtn;
+    int reqWidth, reqHeight;
+    LinearLayout mainContent, btnGallery,enrollGallery;
+
+    Intent intent;
+    DisplayMetrics metrics;
+    int inSampleSize = 0, widthRatio = 0;
+    BitmapFactory.Options imgOptions,options;
+    Bitmap bitmap;
+    File file;
+    InputStream inputStream;
+    ImageView imageView; LinearLayout.LayoutParams params;
+    String docId ="", type = "", selection = ""; String[] spilt,selectionArg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,12 +71,29 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
 
 
         galleryBtn = findViewById(R.id.gallery_galleryBtn);
-        mainContent = findViewById(R.id.mainContent);
+        contactBtn = findViewById(R.id.gallery_contactbtn);
+        mainContent = findViewById(R.id.enroll_main);
+        btnGallery = findViewById(R.id.gallery_ll_btn);
+        enrollGallery = findViewById(R.id.gallery_ll_enroll);
+
+        gallery_enroll_enrollBtn = findViewById(R.id.gallery_enroll_enrollBtn);
+        gallery_enroll_cancelBtn = findViewById(R.id.gallery_enroll_cancelBtn);
+
+        gallery_enroll_enrollBtn.setOnClickListener(eClickListener);
+        gallery_enroll_cancelBtn.setOnClickListener(eClickListener);
+
 
         galleryBtn.setOnClickListener(this);
 
-        //사진 사이즈 정하는곳.
-        DisplayMetrics metrics = this.getResources().getDisplayMetrics();
+        ////////////////////////////////////////////////////////////
+        //
+        //     Date: 2020.12.25-태현
+        //       //   //사진 사이즈 정하는곳.
+        //
+        //
+        ////////////////////////////////////////////////////////////
+
+        metrics = this.getResources().getDisplayMetrics();
         reqHeight = metrics.heightPixels;
         reqWidth = metrics.widthPixels;
 
@@ -74,34 +105,47 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
         }
 
     }
+    ////////////////////////////////////////////////////////////
+    //
+    //      Date: 2020.12.25-태현
+    //
+    //       //   //사진 Layout에 띄우기(사이즈).
+    //
+    //
+    ////////////////////////////////////////////////////////////
 
     private void insertImageView(String filePath){
+
+        //갤러리 버튼 제거, 등록튼 생성
+        btnGallery.setVisibility(View.INVISIBLE);
+        enrollGallery.setVisibility(View.VISIBLE);
+
         if(!filePath.equals("")){
-            File file = new File(filePath);
-            BitmapFactory.Options options = new BitmapFactory.Options();
+            file = new File(filePath);
+            options = new BitmapFactory.Options();
             //초기 이미지 읽기
             options.inJustDecodeBounds = true;
             try {
-                InputStream inputStream = new FileInputStream(filePath);
+                inputStream = new FileInputStream(filePath);
                 BitmapFactory.decodeStream(inputStream, null,options);
                 inputStream.close();
                 inputStream = null;
 
                 final int width = options.outWidth;
-                int inSampleSize = 1 ;
+                inSampleSize = 1 ;
 
                 if(width > reqWidth){
-                    int widthRatio = Math.round((float)width  / (float)reqWidth);
+                    widthRatio = Math.round((float)width  / (float)reqWidth);
                     inSampleSize = widthRatio;
                 }
 
-                BitmapFactory.Options imgOptions = new BitmapFactory.Options();
+                imgOptions = new BitmapFactory.Options();
                 imgOptions.inSampleSize = inSampleSize;
-                Bitmap bitmap = BitmapFactory.decodeFile(filePath, imgOptions);
+                bitmap = BitmapFactory.decodeFile(filePath, imgOptions);
 
-                ImageView imageView = new ImageView(this);
+                imageView = new ImageView(this);
                 imageView.setImageBitmap(bitmap);
-                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                params = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
                         ViewGroup.LayoutParams.WRAP_CONTENT);
                 mainContent.addView(imageView, params);
 
@@ -113,18 +157,27 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
 
     }
 
+    ////////////////////////////////////////////////////////////
+    //       Date: 2020.12.25-태현
+    //
+    //       //   // 커서로 선택한 사진 ID값.
+    //
+    //
+    ////////////////////////////////////////////////////////////
+
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     private String getFilePathFromDocumentUri(Context context, Uri uri){
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            String docId = DocumentsContract.getDocumentId(uri);
-            String[] spilt = docId.split(":");
-            String type = spilt[0];
+            docId = DocumentsContract.getDocumentId(uri);
+            spilt = docId.split(":");
+
+            type = spilt[0];
             Uri contentUri = null;
             if ("image".equals(type)) {
                 contentUri = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
             }
-            String selection = MediaStore.Images.Media._ID + "=?";
-            String[] selectionArg = new String[]{spilt[1]};
+            selection = MediaStore.Images.Media._ID + "=?";
+            selectionArg = new String[]{spilt[1]};
 
             String column = "_data";
             String[] projection = {column};
@@ -143,8 +196,16 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
         }
 
     }
-    //갤러리 앱의 컨텐터 이용하기 위한것.
-    //sement방식으로 결과 값 넘어왔을때 그걸 가지고 파일 경로를 뽑아내는 방식.
+
+    ////////////////////////////////////////////////////////////
+    //      Date: 2020.12.25-태현
+    //
+    //           //갤러리 앱의 컨텐터 이용하기 위한것.
+    //    //sement방식으로 결과 값 넘어왔을때 그걸 가지고 파일 경로를 뽑아내는 방식.
+    //
+    //
+    ////////////////////////////////////////////////////////////
+
     private String getFilePathFromUriSegment(Uri uri) {
         String selection = MediaStore.Images.Media._ID + "=?";
 
@@ -168,9 +229,16 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
         return filePath;
     }
 
-
+    ////////////////////////////////////////////////////////////
+    //
+    //      Date: 2020.12.25-태현
+    //        //사진 선택시, 연락처 선택시 인덱스 값으로 결과값 되돌려 받기..//
+    //                                                        //
+    //                                                        //
+    ////////////////////////////////////////////////////////////
     @Override
     public void onClick(View v) {
+
         if(v == contactBtn){
             Intent intent = new Intent(Intent.ACTION_PICK);
             intent.setData(Uri.parse("content://com.android.contacts/data/phones"));
@@ -201,12 +269,19 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
         }
     }
 
-    //startActivityForResult함수로 되돌아 올 경우 사후 처리를 위해 자동호출되는 함수 작성
 
+    ////////////////////////////////////////////////////////////
+    //
+    //       Date: 2020.12.25-태현
+    //      ///startActivityForResult함수로
+    //         되돌아 올 경우 사후 처리를 위해 자동호출되는 함수 작성 //
+    //
+    ////////////////////////////////////////////////////////////
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 10 && resultCode == RESULT_OK) {
             String id = Uri.parse(data.getDataString()).getLastPathSegment();
@@ -233,6 +308,7 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
             cursor.moveToFirst();
             String filePath = cursor.getString(0);
             insertImageView(filePath);
+
 
         }
         else if (requestCode == 30 && resultCode == RESULT_OK && Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN){
@@ -263,4 +339,29 @@ public class GalleryActivity extends AppCompatActivity implements View.OnClickLi
             }
         }
     }
+
+    View.OnClickListener eClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.gallery_enroll_enrollBtn:
+                    intent = new Intent(GalleryActivity.this,DetailViewActivity.class);
+//                    intent.putExtra("imageUri", )
+
+                    break;
+                case R.id.gallery_enroll_cancelBtn:
+                    intent = new Intent(GalleryActivity.this,DetailViewActivity.class);
+                    startActivity(intent);
+                    break;
+            }
+        }
+    };
+
+
+
+
+
+
+
+
 }//---END
