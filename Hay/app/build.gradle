@@ -36,4 +36,19 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+
+
+
+
+    ////태현 2020.12.27
+    //recycleview and material library
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+    //image cropper
+    implementation 'com.theartofdev.edmodo:android-image-cropper:2.8.+'
+    //circular Imageview
+    implementation 'com.github.mohammadatif:CircularImageView:1.0.1'
+    /////
 }
