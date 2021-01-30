@@ -93,6 +93,7 @@ https://www.youtube.com/watch?v=CYJKLhLt-mw&list=PLQMmGLiY4vSsomFYkfAk50WPZ3pxmW
 
     SQL_DB/Hay.sql 파일 import하기
     
+ ----
     
 1. 클론한 DB를 본인 MySQL에 Import합니다. 
 
