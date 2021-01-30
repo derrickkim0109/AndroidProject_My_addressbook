@@ -6,7 +6,7 @@
 https://www.youtube.com/watch?v=CYJKLhLt-mw&list=PLQMmGLiY4vSsomFYkfAk50WPZ3pxmWk4O&index=2
 
 ### 이슈 탭에서 개발 화면을 확인할 수 있습니다. 
-   https://github.com/thlbyl0109/AndroidProject_tify/issues/1
+   https://github.com/thlbyl0109/AndroidProject_My_addressbook/issues/1
    
 # Logo
     
