@@ -12,17 +12,17 @@ https://www.youtube.com/watch?v=CYJKLhLt-mw&list=PLQMmGLiY4vSsomFYkfAk50WPZ3pxmW
     
      
      
-     <img src ="https://github.com/thlbyl0109/AndroidProject_tify/blob/main/document/tifyLogo.png">
+     <img src ="https://github.com/thlbyl0109/AndroidProject_My_addressbook/blob/main/document/main.png">
         
         
 
 
 # 시스템 흐름도
   
-  <img src ="https://github.com/thlbyl0109/AndroidProject_tify/blob/main/document/system.png">
+  <img src ="https://github.com/thlbyl0109/AndroidProject_My_addressbook/blob/main/document/systemFlow.png">
 
 # ERD 
-  <img src ="https://github.com/thlbyl0109/AndroidProject_tify/blob/main/document/ERD.jpeg">
+  <img src ="https://github.com/thlbyl0109/AndroidProject_My_addressbook/blob/main/document/ERD.png">
 # 1.Build gradle에 추가를 한다.
 
 
