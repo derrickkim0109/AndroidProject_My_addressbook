@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:id="@+id/joinadd_ll_hide"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="추가정보를 \n입력해주세요."
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:textColor="#3E3D3D"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="20dp"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="left"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="30dp"
+        >
+
+        <TextView
+            android:id="@+id/joinadd_tv_id"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Email print"
+            android:textColor="@color/input_register"
+            android:textSize="20dp"
+
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:boxBackgroundColor="@color/white"
+            app:hintEnabled="false"
+            app:boxStrokeColor="@color/input_login_hint"
+            >
+
+        <EditText
+            android:id="@+id/joinadd_et_pw"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="비밀번호를 입력해주세요."
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@color/input_register"
+            android:textColorHint="@color/input_register_hint"
+            android:textSize="20dp"
+            android:layout_marginTop="15dp"
+            app:boxStrokeColor="@color/input_login_hint"
+            android:textCursorDrawable="@drawable/cursor_color"
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/joinadd_tv_pw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="8글자이상, 특수문자와 대문자가 포함되어야 합니다."
+            android:textSize="12dp"
+            android:textColor="@color/input_register"
+            android:layout_marginLeft="10dp"
+
+            />
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:passwordToggleEnabled="true"
+            app:boxBackgroundColor="@color/white"
+            app:hintEnabled="false"
+            app:boxStrokeColor="@color/input_login_hint"
+
+            >
+        <EditText
+            android:id="@+id/joinadd_et_pwcheck"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="비밀번호 확인."
+            android:inputType="textPassword"
+            android:padding="10dp"
+            android:textColor="@color/input_register"
+            android:textColorHint="@color/input_register_hint"
+            android:textSize="20dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+
+            />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/joinadd_tv_pwcheck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#4CAF50"
+            android:layout_marginLeft="10dp"
+
+            />
+
+
+
+
+
+        <EditText
+            android:id="@+id/joinadd_et_tel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="전화번호를 입력해주세요."
+            android:inputType="phone"
+            android:padding="10dp"
+            android:textColor="@color/input_register"
+            android:textColorHint="@color/input_register_hint"
+            android:textSize="20dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:backgroundTint="@color/input_login_hint"
+
+
+
+            />
+
+
+        <TextView
+            android:id="@+id/joinadd_tv_telcheck"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="가입되어 있는 번호는 사용하실 수 없습니다."
+            android:textSize="12dp"
+            android:textColor="@color/input_register"
+            android:layout_marginLeft="10dp"
+            />
+
+
+        <EditText
+            android:id="@+id/joinadd_et_name"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="이름을 입력해주세요."
+            android:inputType="textPersonName"
+            android:padding="10dp"
+            android:textColor="@color/input_register"
+            android:textColorHint="@color/input_register_hint"
+            android:textSize="20dp"
+
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:backgroundTint="@color/input_login_hint"
+            />
+
+        <Button
+            android:id="@+id/joinadd_btn_continue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/login_loginbtn_shape"
+            android:text="가입하기"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/btn_logins" />
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

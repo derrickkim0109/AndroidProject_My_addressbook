@@ -1,9 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".FindIDActivity">
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:id="@+id/ll_hide"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="계정이 \n기억나지 않으세요?"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            android:textColor="#3E3D3D"
+            android:layout_marginTop="80dp"
+            android:layout_marginLeft="20dp"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_marginTop="130dp"
+
+        >
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="가입할때 사용하신 전화번호를 입력하세요"
+            android:textColor="@color/input_register"
+            android:layout_marginLeft="10dp"
+            />
+
+        <EditText
+            android:id="@+id/findid_et_tel"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="핸드폰 번호를 입력하세요."
+            android:inputType="phone"
+            android:padding="10dp"
+            android:textColor="@color/input_register"
+            android:textColorHint="@color/input_register_hint"
+            android:textSize="20dp"
+            android:textCursorDrawable="@drawable/cursor_color"
+            android:backgroundTint="@color/input_login_hint"
+
+
+            />
+
+
+
+
+
+<!--        <TextView-->
+<!--            android:visibility="invisible"-->
+<!--            android:id="@+id/findid_tv_telcheck"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="일치하는 핸드폰번호가 없습니다."-->
+<!--            android:textColor="#ED5C5C"-->
+<!--            android:layout_marginLeft="10dp"-->
+
+<!--            />-->
+
+
+
+
+
+
+
+
+
+        <Button
+            android:id="@+id/findid_btn_continue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/login_loginbtn_shape"
+            android:text="계속하기"
+            android:textColor="@color/white"
+            app:backgroundTint="@color/btn_logins" />
+
+
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>

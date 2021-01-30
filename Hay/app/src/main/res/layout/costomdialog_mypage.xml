@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:id="@+id/detail_ll_hide"
+    android:layout_height="350dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mpd_title"
+        android:background="#b190ee"
+        android:padding="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="회원탈퇴">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mpd_text"
+        android:textSize="25dp"
+        android:layout_margin="10dp"
+        android:paddingTop="20dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="탈퇴합니다">
+
+    </TextView>
+
+    <EditText
+        android:layout_margin="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/userDeleteMessage"
+        android:hint="'탈퇴합니다'를 입력해주세요.'"
+        android:textSize="20dp">
+    </EditText>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:layout_margin="10dp"
+        android:textColor="#BC2D2D"
+        android:id="@+id/userDeleteText">
+
+    </TextView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/mpd_okbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="확인"
+            android:textSize="20dp"
+            android:background="@drawable/login_loginbtn_shape"
+            app:backgroundTint="#b190ee"></Button>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"></LinearLayout>
+
+        <Button
+            android:id="@+id/mpd_cancelbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="취소"
+            android:background="@drawable/login_loginbtn_shape"
+            android:textSize="20dp"
+            app:backgroundTint="#666666"></Button>
+    </LinearLayout>
+</LinearLayout>

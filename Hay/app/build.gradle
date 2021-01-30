@@ -33,13 +33,28 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
     implementation 'com.google.android.material:material:1.2.1'
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.viewpager:viewpager:1.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation files('libs\\activation.jar')
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
+    //민우
+    implementation 'com.android.support:recyclerview-v7:30.0.0'
+    implementation 'com.google.android.material:material:1.1.0-alpha10'
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 
 
+
+    //태현 2020.12.29
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0-RC1'
+
+    /////이미지 불러오기 - 2020.12.30 - 태현
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
 
 
     ////태현 2020.12.27
@@ -51,4 +66,10 @@ dependencies {
     //circular Imageview
     implementation 'com.github.mohammadatif:CircularImageView:1.0.1'
     /////
+
+
+
+    ///현아
+
+    implementation 'me.relex:circleindicator:1.2.2'
 }

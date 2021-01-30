@@ -1,9 +1,310 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TAGActivity">
+    tools:context=".jiseok.Activity.TAGActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:orientation="vertical"
+            android:layout_weight="2"
+            >
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="나의 태그를"
+                android:textSize="35dp"
+                android:layout_marginTop="70dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="수정해볼까요?"
+                android:textSize="35dp"
+                android:layout_marginLeft="40dp"
+                android:textStyle="bold"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="태그명은 최대 5글자까지 가능합니다."
+                    android:gravity="bottom"
+                    android:layout_marginBottom="12dp"
+                    android:textStyle="italic"
+
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:id="@+id/tag_ly_tag1"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TAG 1"
+                    android:textSize="30dp"
+                    android:textColor="#e2f76c"
+
+                    android:layout_marginRight="10dp"
+                    />
+                <ImageView
+                    android:id="@+id/tag_img_tagImg1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/firstlight"
+                    android:layout_marginRight="10dp"
+                    />
+                <EditText
+                    android:id="@+id/tag_edit_tagEdit1"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:maxLength="5"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/tag_ly_tag2"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TAG 2"
+                    android:textSize="30dp"
+                    android:textColor="#f7d06b"
+                    android:layout_marginRight="10dp"
+                    />
+                <ImageView
+                    android:id="@+id/tag_img_tagImg2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/secondlight"
+                    android:layout_marginRight="10dp"
+                    />
+                <EditText
+                    android:id="@+id/tag_edit_tagEdit2"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:maxLength="5"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/tag_ly_tag3"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TAG 3"
+                    android:textSize="30dp"
+                    android:textColor="#f8926c"
+
+                    android:layout_marginRight="10dp"
+                    />
+                <ImageView
+                    android:id="@+id/tag_img_tagImg3"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/thirdlight"
+                    android:layout_marginRight="10dp"
+                    />
+                <EditText
+                    android:id="@+id/tag_edit_tagEdit3"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:maxLength="5"
+                    />
+
+
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/tag_ly_tag4"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TAG 4"
+                    android:textSize="30dp"
+                    android:textColor="#f76ca3"
+
+                    android:layout_marginRight="10dp"
+                    />
+                <ImageView
+                    android:id="@+id/tag_img_tagImg4"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/fourthlight"
+                    android:layout_marginRight="10dp"
+                    />
+                <EditText
+                    android:id="@+id/tag_edit_tagEdit4"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:maxLength="5"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/tag_ly_tag5"
+                android:layout_width="match_parent"
+                android:layout_height="0px"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="TAG 5"
+                    android:textSize="30dp"
+                    android:textColor="#6ccff8"
+
+                    android:layout_marginRight="10dp"
+                    />
+                <ImageView
+                    android:id="@+id/tag_img_tagImg5"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/fifthlight"
+                    android:layout_marginRight="10dp"
+                    />
+                <EditText
+                    android:id="@+id/tag_edit_tagEdit5"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:maxLength="5"
+                    />
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0px"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginTop="25dp"
+                >
+                <Button
+                    android:id="@+id/tag__cancel_cancelBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="취소"
+                    android:layout_marginRight="15dp"
+                    android:backgroundTint="#666"
+                    />
+
+                <Button
+                    android:id="@+id/tag_insert_insertBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:text="등록"
+
+
+                    app:backgroundTint="#b190ee" />
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <!--    BottomAppBar는 CoordinatorLayout-->
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/white"
+        app:hideOnScroll="true">
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        app:fabSize="normal"
+        app:layout_anchor="@id/bab"
+        android:src="@drawable/ic_action_home"
+        android:onClick="clickFab"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/snackbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="88dp">
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

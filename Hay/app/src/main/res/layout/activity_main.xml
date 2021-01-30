@@ -1,18 +1,236 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:id="@+id/main_coordinator_outer"
+    tools:context=".Minwoo.Activity.MainActivity">
 
-    <TextView
+
+    <LinearLayout
+        android:id="@+id/main_Linear_outer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+        <include
+            layout="@layout/main_toolbar"
+            android:id="@+id/main_toolbar"
+            app:layout_scrollFlags="scroll|snap"
+            >
+        </include>
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@drawable/main_border"
+            >
+            <Spinner
+                android:id="@+id/main_Spinner_tag"
+                android:layout_width="90dp"
+                android:layout_height="50dp"
+                android:spinnerMode="dropdown"
+                android:gravity="center"
+
+                />
+            <AutoCompleteTextView
+                android:id="@+id/main_Edit_SearchText"
+                android:layout_width="200dp"
+                android:layout_height="50dp"
+                android:hint="검색어를 입력하세요"
+                android:gravity="center"
+                android:inputType="text"
+                android:imeOptions="actionDone"
+                android:textColorHint="#555555"
+                android:completionThreshold="1"
+                tools:ignore="Autofill,TextFields"
+                android:textSize="17dp"
+
+                />
+            <ImageView
+                android:id="@+id/main_ImgBtn_SearchBtn"
+                android:layout_width="50dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/search_big"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RadioGroup
+                android:id="@+id/main_RadioGroup"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:gravity="center"
+                >
+                <RadioButton
+                    android:id="@+id/main_Radio_Name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="110"
+                    android:checked="true"
+                    android:text="이름순 정렬"/>
+                <RadioButton
+                    android:id="@+id/main_Radio_New"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="100"
+
+                    android:text="최신등록순 정렬"/>
+                <RadioButton
+                    android:id="@+id/main_Radio_Tag"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+
+                    android:text="태그별 정렬"/>
+            </RadioGroup>
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="15dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center"
+            >
+            <TextView
+                android:id="@+id/main_Text_Count"
+                android:layout_width="350dp"
+                android:layout_height="match_parent"
+                android:text="검색결과"
+                android:textSize="12dp"
+                android:gravity="right"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="63dp"
+            android:orientation="vertical"
+            android:layout_gravity="center"
+            >
+            <Button
+                android:id="@+id/main_Btn_AddFriend"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:text="+친구추가"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:backgroundTint="#b190ee"
+                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+
+                android:orientation="horizontal"
+                android:background="#b190ee"
+                >
+                <TextView
+                    android:layout_width="13dp"
+                    android:layout_height="match_parent"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingTop="2dp"
+                    android:text="TAG"
+                    android:textSize="12dp"
+                    android:textColor="@color/white"
+                    />
+                <TextView
+                    android:layout_width="36dp"
+                    android:layout_height="match_parent"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingTop="2dp"
+                    android:text="사진"
+                    android:textSize="12dp"
+                    android:textColor="@color/white"
+                    />
+                <TextView
+                    android:layout_width="55dp"
+                    android:layout_height="match_parent"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingTop="2dp"
+                    android:text="이름"
+                    android:textSize="12dp"
+                    android:textColor="@color/white"
+                    />
+                <TextView
+                    android:layout_width="66dp"
+                    android:layout_height="match_parent"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:paddingTop="2dp"
+                    android:text="관계"
+                    android:textSize="12dp"
+                    android:textColor="@color/white"
+                    />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/listView_Friends"
+            android:layout_width="350dp"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            android:onClick="hideKeyboard"
+            />
+    </LinearLayout>
+
+    <!--    BottomAppBar는 CoordinatorLayout-->
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/white"
+        app:hideOnScroll="true">
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:backgroundTint="@color/white"
+        app:fabSize="normal"
+        app:layout_anchor="@id/bab"
+        android:src="@drawable/ic_action_refrash"
+        android:onClick="clickFab"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/snackbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="88dp">
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

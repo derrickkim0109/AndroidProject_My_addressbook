@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/toolbar_menu"
+        android:icon="@drawable/ic_action_menu"
+        android:title="toolbar_menu"
+        app:showAsAction="always"
+        >
+        <item android:id="@+id/menu_MyPage"
+            android:title="마이페이지">
+        </item>
+        <item android:id="@+id/menu_ManageTag"
+            android:title="태그수정">
+        </item>
+        <item android:id="@+id/menu_Logout"
+            android:title="로그아웃">
+        </item>
+    </item>
+
+
+
+</menu>

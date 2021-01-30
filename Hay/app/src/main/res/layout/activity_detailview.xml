@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.coordinatorlayout.widget.CoordinatorLayout
 
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,7 +7,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".Taehyun.Activity.DetailViewActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
 
     <LinearLayout
         android:id="@+id/detail_ll_hide"
@@ -84,7 +90,6 @@
 
             <ImageView
                 android:id="@+id/detail_tag2"
-
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_gravity="center"
@@ -250,26 +255,26 @@
                 android:layout_height="40dp"
                 android:layout_marginTop="16dp"
                 android:orientation="horizontal">
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/detail_Edit_comment"
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="55dp"
-        android:gravity="start"
-        android:hint="코멘트를 입력해주세요(최대 100자)"
-        android:inputType="textMultiLine"
-        android:lines="1"
-        android:maxWidth="5.0dip"
-        android:minWidth="5.0dip"
-        android:minHeight="20dp"
-        android:padding="10dp"
-        android:scrollHorizontally="false"
-        android:textColor="@color/black" />
-</ScrollView>
+                    <EditText
+                        android:id="@+id/detail_Edit_comment"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="55dp"
+                        android:gravity="start"
+                        android:hint="코멘트를 입력해주세요(최대 100자)"
+                        android:inputType="textMultiLine"
+                        android:lines="1"
+                        android:maxWidth="5.0dip"
+                        android:minWidth="5.0dip"
+                        android:minHeight="20dp"
+                        android:padding="10dp"
+                        android:scrollHorizontally="false"
+                        android:textColor="@color/black" />
+                </ScrollView>
             </LinearLayout>
         </FrameLayout>
 
@@ -312,5 +317,34 @@
         </LinearLayout>
 
     </LinearLayout>
+    </ScrollView>
 
-</ScrollView>
+    <!--    BottomAppBar는 CoordinatorLayout-->
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:backgroundTint="@color/white"
+        app:hideOnScroll="true">
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        app:fabSize="normal"
+        app:layout_anchor="@id/bab"
+        android:src="@drawable/ic_action_home"
+        android:onClick="clickFab"
+        app:layout_behavior="com.google.android.material.behavior.HideBottomViewOnScrollBehavior"
+        />
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/snackbar_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginBottom="88dp">
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

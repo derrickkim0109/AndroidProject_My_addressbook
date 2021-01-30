@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="320dp"
+    android:orientation="vertical"
+    android:background="#fff"
+    android:id="@+id/detail_ll_hide"
+    android:layout_height="330dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mfi_title"
+        android:background="#b190ee"
+        android:padding="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="아이디 찾기">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="15dp"
+        android:layout_margin="10dp"
+        android:paddingTop="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="아이디찾기 결과입니다.">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/mfi_text"
+        android:textSize="18dp"
+        android:layout_margin="10dp"
+        android:paddingTop="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="당신의 아이디는\ngusdk99@naver.com 입니다.">
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="13dp"
+        android:layout_margin="10dp"
+        android:paddingTop="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:text="확인을 누르시면 로그인창에 아이디가 복사됩니다.">
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/mfi_cancelbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="닫기"
+            android:background="@drawable/login_loginbtn_shape"
+            android:textSize="20dp"
+            app:backgroundTint="#666666"></Button>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"></LinearLayout>
+        <Button
+            android:id="@+id/mfi_okbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+            android:text="확인"
+            android:textSize="20dp"
+            android:background="@drawable/login_loginbtn_shape"
+            app:backgroundTint="#b190ee"></Button>
+    </LinearLayout>
+</LinearLayout>
