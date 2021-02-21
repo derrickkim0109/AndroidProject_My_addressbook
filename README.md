@@ -1,6 +1,7 @@
 # Android_Hay
 
-@copyright :  김태현 , 최현아, 최지석, 이민우 
+@copyright : 김태현 외 3                
+-담당 업무 : 연락처 등록 및 수정 , File Uploading
 
 ### 시연 동영상 
 https://www.youtube.com/watch?v=CYJKLhLt-mw&list=PLQMmGLiY4vSsomFYkfAk50WPZ3pxmWk4O&index=2
