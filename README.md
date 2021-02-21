@@ -1,6 +1,6 @@
 # Android_Hay
 
-@copyright : 김태현 외 3                
+@copyright : 김태현 외 3명                 
 -담당 업무 : 연락처 등록 및 수정 , File Uploading
 
 ### 시연 동영상 
